@@ -14,16 +14,18 @@ void thread1() {
 }
 
 void thread2() {
-    x.store(1, std::memory_order_relaxed);
-    y.store(1, std::memory_order_relaxed);
+    x.store(1);
+    y.store(1);
 }
 
 int main() {
+
     std::thread t1(thread1);
     std::thread t2(thread2);
     
     t1.join();
     t2.join();
+
     
     return 0;
 }

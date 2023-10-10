@@ -5,6 +5,8 @@
 std::atomic<int> x(0);
 std::atomic<int> y(0);
 
+
+
 void thread1() {
     x.store(1, std::memory_order_relaxed);
     int a = y.load(std::memory_order_relaxed);
@@ -22,9 +24,10 @@ void thread2() {
 }
 
 int main() {
+
+    std::cout << "Initialising "<< std::endl;
     std::thread t1(thread1);
     std::thread t2(thread2);
-    
     t1.join();
     t2.join();
     

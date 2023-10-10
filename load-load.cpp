@@ -2,15 +2,15 @@
 #include <thread>
 #include <atomic>
 
-std::atomic<int> x(0);
-std::atomic<int> y(0);
+volatile std::atomic<int> x(0);
+volatile std::atomic<int> y(0);
 
 void thread1() {
-    int a = y.load(std::memory_order_relaxed);
-    if (a == 0) {
+    int flag = y.load(std::memory_order_relaxed);
+    int data = x.load(std::memory_order_relaxed);
+    if ( flag==1 && data == 0) {
         std::cout << "Load-Load Reordering Detected!" << std::endl;
     }
-    int b = x.load(std::memory_order_relaxed);
 }
 
 void thread2() {

@@ -9,6 +9,8 @@ volatile std::atomic<int> y(0);
 
 
 // X86 archetecture
+// differnce between cohereance and consistancy
+// why reordering happen at arch level
 void thread1() {
     x.store(1, std::memory_order_relaxed);
     y.store(1, std::memory_order_relaxed);

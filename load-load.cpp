@@ -14,6 +14,10 @@ void thread1() {
 }
 
 void thread2() {
+    // __asm__ __volatile__ ("movl %1, %0;"
+    // :"=r"(x) /* related to %0*/
+    // :"r"(11) /* related to %1*/
+    // :);
     x.store(1);
     y.store(1);
 }

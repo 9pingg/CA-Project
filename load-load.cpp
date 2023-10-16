@@ -1,8 +1,8 @@
 /*
 LOAD-LOAD reordering
 
-S(x)=1 -> S(y)=1 -> L(x)=1 -> L(y)=1 [Correct order for load load]    => Follow Sequencial Consistency
-L(y)=0 -> S(x)=1 -> S(y)=1 -> L(x)=1 [Reordered load load]            => Not sequencial Consistency
+S(x)=1 -> S(y)=1 -> L(x)=1 -> L(y)=1 [Correct order for load load]    
+L(y)=0 -> S(x)=1 -> S(y)=1 -> L(x)=1 [Reordered load load]           
 */
 
 #include <iostream>

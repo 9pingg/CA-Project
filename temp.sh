@@ -3,7 +3,6 @@
 # List of fruits
 fruits=("Apple" "Banana" "Cherry" "Date" "Fig")
 count_store_store=0
-count_store_load=0
 count_load_store=0
 count_load_load=0
 count_initializing=0
@@ -18,7 +17,11 @@ for ((i=1; i<=1000; i++)); do
     if [[ $output == *"store-store detected"* ]]; then
         ((count_store_store++))
     fi
+    if [[ $output == *"load-store detected"* ]]; then
+        ((count_load_store++))
+    fi
 done
 
 echo "Count of 'load-load': $count_load_load"
 echo "Count of 'store-store': $count_store_store"
+echo "Count of 'load-store/store-load': $count_load_store"

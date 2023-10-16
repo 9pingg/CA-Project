@@ -1,8 +1,8 @@
 /*
 STORE-STORE reordering
 
-S(x)=1 -> L(x)=1 -> S(y)=1 -> L(y)=1 [Correct order for store store]    => Follow Sequencial Consistency
-S(y)=1 -> L(x)=0 -> S(x)=1 -> L(y)=1 [Reordered store store]            => Not sequencial Consistency
+S(x)=1 -> L(x)=1 -> S(y)=1 -> L(y)=1 [Correct order for store store]   
+S(y)=1 -> L(x)=0 -> S(x)=1 -> L(y)=1 [Reordered store store]            
 */
 
 #include <iostream>

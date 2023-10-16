@@ -6,23 +6,21 @@ count_load_store=0
 count_load_load=0
 count_initializing=0
 
-for ((i=1; i<=$1; i++)); do
+for ((i=1; i<=1000; i++)); do
     output=$(./run)
-    if [[ $output == *"initializing\nstore-store"* ]]; then
+    if [[ $output == *"store-store detected"* ]]; then
         ((count_store_store++))
     fi
-    if [[ $output == *"initializing\nstore-load"* ]]; then
+    if [[ $output == *"store-load detected"* ]]; then
         ((count_store_load++))
     fi
-    if [[ $output == *"initializing\nload-store"* ]]; then
+    if [[ $output == *"load-store detected"* ]]; then
         ((count_load_store++))
     fi
-    if [[ $output == *"initializing\nload-load"* ]]; then
+    if [[ $output == *"load-load detected"* ]]; then
         ((count_load_load++))
     fi
-    if [[ $output == *"initializing"* ]]; then
-        ((count_initializing++))
-    fi
+    ((count_initializing++))  # Always increment this counter
 done
 
 if [ $count_store_store -ne 0 ]; then
@@ -31,6 +29,8 @@ elif [ $count_store_load -ne 0 ]; then
     echo "Count of 'store-load': $count_store_load"
 elif [ $count_load_store -ne 0 ]; then
     echo "Count of 'load-store': $count_load_store"
+elif [ $count_load_load -ne 0 ]; then
+    echo "Count of load-load': $count_load_load"
 fi
 
 echo "Number of 'initializing' occurrences: $count_initializing"

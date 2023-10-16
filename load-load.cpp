@@ -1,8 +1,8 @@
 /*
 LOAD-LOAD reordering
 
-S(x)=1 -> L(x)=1 -> S(y)=1 -> L(y)=1 [Correct order for load load]    => Follow Sequencial Consistency
-S(y)=1 -> L(y)=0 -> S(x)=1 -> L(x)=1 [Reordered load load]            => Not sequencial Consistency
+S(x)=1 -> S(y)=1 -> L(x)=1 -> L(y)=1 [Correct order for load load]    => Follow Sequencial Consistency
+L(y)=0 -> S(x)=1 -> S(y)=1 -> L(x)=1 [Reordered load load]            => Not sequencial Consistency
 */
 
 #include <iostream>
@@ -14,14 +14,14 @@ volatile std::atomic<int> y(0);
 
 void thread1() {
     do{
-        if ( x.load(std::memory_order_relaxed) == 0 ) {
-            if( y.load(std::memory_order_relaxed) == 1){
+        if ( x.load(std::memory_order_relaxed) == 1 ) {
+            if( y.load(std::memory_order_relaxed) == 0){
                 std::cout << "load-load detected";
                 return;
             }
+            else
+                return;
         }
-        else
-            return;
     }while(true);
 }
 

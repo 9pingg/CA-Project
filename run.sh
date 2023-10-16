@@ -6,18 +6,18 @@ count_load_store=0
 count_load_load=0
 count_initializing=0
 
-for ((i=1; i<=1000; i++)); do
+for ((i=1; i<=$1; i++)); do
     output=$(./run)
-    if [[ $output == *"store-store"* ]]; then
+    if [[ $output == *"initializing\nstore-store"* ]]; then
         ((count_store_store++))
     fi
-    if [[ $output == *"store-load"* ]]; then
+    if [[ $output == *"initializing\nstore-load"* ]]; then
         ((count_store_load++))
     fi
-    if [[ $output == *"load-store"* ]]; then
+    if [[ $output == *"initializing\nload-store"* ]]; then
         ((count_load_store++))
     fi
-    if [[ $output == *"load-load"* ]]; then
+    if [[ $output == *"initializing\nload-load"* ]]; then
         ((count_load_load++))
     fi
     if [[ $output == *"initializing"* ]]; then

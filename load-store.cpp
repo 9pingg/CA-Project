@@ -18,7 +18,7 @@ void thread1() {
     x.store(1, std::memory_order_relaxed);
     int a = y.load(std::memory_order_relaxed);
     if (a == 0) {
-        std::cout << "load-store detected";
+        std::cout << "load-store/store-load detected";
     }
 }
 
@@ -26,7 +26,7 @@ void thread2() {
     y.store(1, std::memory_order_relaxed);
     int b = x.load(std::memory_order_relaxed);
     if (b == 0) {
-        std::cout << "load-store detected";
+        std::cout << "load-store/store-load detected";
     }
 }
 

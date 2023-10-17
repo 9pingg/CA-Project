@@ -30,6 +30,17 @@ void thread2() {
             break;
         }
     }
+
+    // while(true){
+    //     if(y.load() == 1){
+    //         if(x.load() == 0){
+    //             std::cout << "store-store detected";
+    //             return;
+    //         }
+    //         else
+    //             return;
+    //     }
+    // }
 }
 
 int main() {

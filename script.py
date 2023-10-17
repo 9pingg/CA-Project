@@ -21,10 +21,10 @@ for i in range(1, 1001):
     count_initializing += 1
 
 if count_store_store != 0:
-    print(f"Count of 'store-store': {count_store_store}")
+    print(f"Count of 'store-store' detected: {count_store_store}")
 elif count_store_load != 0:
-    print(f"Count of 'load-store/store-load': {count_store_load}")
+    print(f"Count of 'load-store/store-load' detected: {count_store_load}")
 elif count_load_load != 0:
-    print(f"Count of 'load-load': {count_load_load}")
+    print(f"Count of 'load-load' detected: {count_load_load}")
 
 print(f"Number of runs: {count_initializing}")

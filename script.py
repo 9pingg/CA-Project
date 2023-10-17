@@ -11,7 +11,7 @@ for i in range(1, 1001):
     output = subprocess.check_output(["./run"]).decode("utf-8")
     if "store-store detected" in output:
         count_store_store += 1
-    if "store-load detected" in output:
+    if "load-store/store-load detected" in output:
         count_store_load += 1
     if "load-store detected" in output:
         count_load_store += 1
@@ -23,10 +23,8 @@ for i in range(1, 1001):
 if count_store_store != 0:
     print(f"Count of 'store-store': {count_store_store}")
 elif count_store_load != 0:
-    print(f"Count of 'store-load': {count_store_load}")
-elif count_load_store != 0:
-    print(f"Count of 'load-store': {count_load_store}")
+    print(f"Count of 'load-store/store-load': {count_store_load}")
 elif count_load_load != 0:
     print(f"Count of 'load-load': {count_load_load}")
 
-print(f"Number of 'initializing' occurrences: {count_initializing}")
+print(f"Number of runs: {count_initializing}")

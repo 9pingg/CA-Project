@@ -1,8 +1,12 @@
 # MPE
-    Demonstration of memory reordering using memory litmus test:
+```
+Demonstration of memory reordering using memory litmus test:
+```
 * Store-store reordering
 * Load-load reordering
 * Load-store and store load reordering.
 
 # EPE
-    Implemented Library based runtime for ensuring Sequential Consistency and Total Store Order memory model.
+```
+Implemented Library based runtime forensuring Sequential Consistency and Total Store Order memory model.
+```

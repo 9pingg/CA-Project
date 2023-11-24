@@ -1,9 +1,9 @@
 # Memory Reordering:
 
 Demonstration of the reordering using memory litmus test:
-a. Store-store reordering.
-b. Load-load reordering
-c. Load-store and store load reordering.
+* Store-store reordering.
+* Load-load reordering
+* Load-store and store load reordering.
 ## Memory Litmus Test
 Memory litmus tests are small multi-threaded programs that are designed to detect possible memory reorderings by threads. They work by setting up certain ordering conditions between memory operations done by multiple threads, and then checking if those orderings held properly at the end.
 
